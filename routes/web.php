@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::middleware(['auth', 'ip.block', 'daily.log', 'register' ])->group(function () { })
+Auth::routes();
 Route::get('/', 'PagesController@index');
 
 Route::get('/about', 'PagesController@about');
@@ -25,3 +27,6 @@ Route::get('/about/{id}', function ($id) {
 });
 
 Route::resource('posts', 'PostsController');
+
+
+Route::get('/home', 'HomeController@index');
