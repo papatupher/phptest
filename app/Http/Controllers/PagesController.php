@@ -3,18 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Song;
 class PagesController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth');
     }
-    
+
     public function index(){
-        $title = 'INDEX TITLE';
-        // return view('pages.index', compact('title'));
-        return view('pages.index')->with('title', $title);
+        $songs = Song::orderBy('title','asc')->paginate(1);
+        // $songs = Song::all();
+        // $Song = Song::where('id', '1')->get();
+        // $songs = DB::select('SELECT  = FROM songs');
+        return view('songs.index')->with('songs', $songs);
     }
 
     public function about(){
@@ -26,7 +28,7 @@ class PagesController extends Controller
             'title' => 'SERVICES',
             'services' => ['Web Design', 'Programming', 'SEO']
         );
-        
+
         return view('pages.services') -> with($data);
     }
 }

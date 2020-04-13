@@ -27,6 +27,7 @@ Route::get('/about/{id}', function ($id) {
 });
 
 Route::resource('posts', 'PostsController');
+Route::resource('songs', 'SongsController');
 
 
 Route::get('/home', 'HomeController@index');
