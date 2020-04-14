@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Posts</h1>
+    <h1>Songs</h1>
     @if(count($songs) > 0)
         @foreach($songs as $song)
             <div class="well">
                 <div class="row">
                     <div class="col-md-4 col-sm-4">
-                        <img style="width: 35%;" src="/storage/songplaceholder.png">
+                        <img style="width: 35%;" src="{{asset('img/songplaceholder.png')}}">
                     </div>
 
                     <div class="col-md-8 col-sm-8">
